@@ -84,14 +84,15 @@ const Index = ({food}) => {
 }
 
 export const getServerSideProps = async ({params}) => {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/products/${params.id}`)
-    const product = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/products`)
 
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/products/${params.id}`)
+    
+  
     return {
       props : {
         food: res.data ? res.data : null,
       }
     }
-}
+  }
 
 export default Index
