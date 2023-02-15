@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'],  })
 
-export default function Index() {
-  const [productList, setProductList] = useState([])
+export default function Index({categoryList, productList}) {
+  /* const [productList, setProductList] = useState([])
   const [categoryList, setCategoryList] = useState([])
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function Index() {
       setProductList(product.data)
     }
     getAll()
-  }, [])
+  }, []) */
   
 
   return (
@@ -33,4 +33,17 @@ export default function Index() {
       <Home productList={productList} categoryList={categoryList}/>
     </>
   )
+}
+
+export async function getServerSideProps() {
+
+  const category = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/categories`)
+  const product = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/products`)
+
+  return {
+    props: {
+      categoryList: category.data ? category.data : [],
+      productList: product.data ? product.data : []
+    }
+  }
 }
