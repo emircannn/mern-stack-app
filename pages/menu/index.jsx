@@ -4,9 +4,9 @@ import axios from 'axios'
 import Chat from '../../components/Chat'
 import { useEffect, useState } from 'react'
 
-const Index = ({categoryList, productList}) => {
+const Index = () => {
 
-  /* const [productList, setProductList] = useState([])
+  const [productList, setProductList] = useState([])
   const [categoryList, setCategoryList] = useState([])
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const Index = ({categoryList, productList}) => {
       setProductList(product.data)
     }
     getAll()
-  }, []) */
+  }, [])
 
   return (
     <div className='min-h-[calc(100vh_-_290px)] flex items-center justify-center'>
@@ -29,19 +29,6 @@ const Index = ({categoryList, productList}) => {
         <Chat/>
     </div>
   )
-}
-
-export async function getServerSideProps() {
-
-  const category = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/categories`)
-  const product = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/products`)
-
-  return {
-    props: {
-      categoryList: category.data ? category.data : [],
-      productList: product.data ? product.data : []
-    }
-  }
 }
 
 export default Index
