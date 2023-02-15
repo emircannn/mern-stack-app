@@ -63,8 +63,8 @@ const Header = () => {
       >
         <div className='flex flex-col'>
         <div className='flex flex-col mt-8 p-4 gap-2 items-center'>
-            <Image alt='' src="/images/Duman.png" width={90} height={90} priority/>
-            {/* <h2 className='text-white font-semibold text-lg uppercase'>Duman Izgara</h2> */}
+            {/* <Image alt='' src="/images/Duman.png" width={90} height={90} priority/> */}
+            <h2 className='text-white font-semibold text-4xl flex items-center justify-center font-dancing h-[90px]'>Logo</h2>
         </div>
 
         <nav className='mt-8'>
